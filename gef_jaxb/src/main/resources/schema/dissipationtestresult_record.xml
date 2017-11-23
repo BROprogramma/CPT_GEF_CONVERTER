@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<swe:DataRecord id="EXAMPLE_03" xmlns:swe="http://www.opengis.net/swe/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xlink="http://www.w3.org/1999/xlink"
+    xsi:schemaLocation="http://www.opengis.net/swe/2.0 http://www.broservices.nl/profile/swe/1.0/swe-profile.xsd
+        http://www.opengis.net/gml/3.2 http://www.broservices.nl/profile/gml/1.0/gml-profile.xsd">
+    <swe:field name="elapsedTime">
+        <swe:Quantity>
+			<swe:nilValues>
+				<swe:NilValues>
+					<swe:nilValue reason="urn:ogc:def:nil:OGC:unknown">-999999</swe:nilValue>
+				</swe:NilValues>
+			</swe:nilValues>
+            <swe:uom code="s" />
+        </swe:Quantity>
+    </swe:field>
+    <swe:field name="coneResistance">
+        <swe:Quantity>
+ 			<swe:nilValues>
+				<swe:NilValues>
+					<swe:nilValue reason="urn:ogc:def:nil:OGC:unknown">-999999</swe:nilValue>
+				</swe:NilValues>
+			</swe:nilValues>
+            <swe:uom code="MPa" />
+        </swe:Quantity>
+    </swe:field>
+    <swe:field name="porePressureU1">
+        <swe:Quantity>
+ 			<swe:nilValues>
+				<swe:NilValues>
+					<swe:nilValue reason="urn:ogc:def:nil:OGC:unknown">-999999</swe:nilValue>
+				</swe:NilValues>
+			</swe:nilValues>
+            <swe:uom code="MPa" />
+        </swe:Quantity>
+    </swe:field>
+    <swe:field name="porePressureU2">
+        <swe:Quantity>
+			<swe:nilValues>
+				<swe:NilValues>
+					<swe:nilValue reason="urn:ogc:def:nil:OGC:unknown">-999999</swe:nilValue>
+				</swe:NilValues>
+			</swe:nilValues>
+            <swe:uom code="MPa" />
+        </swe:Quantity>
+    </swe:field>
+    <swe:field name="porePressureU3">
+        <swe:Quantity>
+			<swe:nilValues>
+				<swe:NilValues>
+					<swe:nilValue reason="urn:ogc:def:nil:OGC:unknown">-999999</swe:nilValue>
+				</swe:NilValues>
+			</swe:nilValues>
+            <swe:uom code="MPa" />
+        </swe:Quantity>
+    </swe:field>
+</swe:DataRecord>

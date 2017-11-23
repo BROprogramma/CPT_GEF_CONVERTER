@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<catalog  xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+   <system systemId="http://schema.broservices.nl/xsd/iscpt/1.1/iscpt-messages.xsd" uri="../schema/iscpt-messages.xsd" />
+   <system systemId="http://schema.broservices.nl/xsd/cptcommon/1.1/cptcommon.xsd" uri="../schema/cptcommon.xsd" />
+   <system systemId="http://schema.broservices.nl/xsd/brocommon/3.0/brocommon.xsd" uri="../schema/brocommon.xsd" />
+   <system systemId="http://schema.broservices.nl/profile/swe/1.0/swe-profile.xsd" uri="../schema/swe-profile.xsd"/>
+   <system systemId="http://schema.broservices.nl/profile/sa/1.0/sa-profile.xsd" uri="../schema/sa-profile.xsd"/>
+   <system systemId="http://schema.broservices.nl/profile/gml/1.0/gml-profile.xsd" uri="../schema/gml-profile.xsd"/>
+   <system systemId="http://schema.broservices.nl/profile/om/1.0/om-profile.xsd" uri="../schema/om-profile.xsd"/>
+   <system systemId="http://schema.broservices.nl/profile/xlink/1.0/xlink-profile.xsd" uri="../schema/xlink-profile.xsd"/>
+</catalog>

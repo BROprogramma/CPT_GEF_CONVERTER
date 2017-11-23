@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+        xmlns:msg="http://www.broservices.nl/xsd/iscpt/1.1" 
+        xmlns:cptcom="http://www.broservices.nl/xsd/cptcommon/1.1" 
+        xmlns:brocom="http://www.broservices.nl/xsd/brocommon/3.0"
+        xmlns:gml="http://www.opengis.net/gml/3.2" 
+        targetNamespace="http://www.broservices.nl/xsd/iscpt/1.1" elementFormDefault="qualified" version="1.1.0">
+
+    <!-- importeer datatypes -->
+    <import namespace="http://www.broservices.nl/xsd/cptcommon/1.1" schemaLocation="http://schema.broservices.nl/xsd/cptcommon/1.1/cptcommon.xsd" />
+    <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schema.broservices.nl/profile/gml/1.0/gml-profile.xsd" />
+    <import namespace="http://www.broservices.nl/xsd/brocommon/3.0" schemaLocation="http://schema.broservices.nl/xsd/brocommon/3.0/brocommon.xsd" />
+
+    <!-- registratieverzoek, bericht van verwerking of bericht van een afwijzing -->
+    <element name="registrationRequest" type="msg:RegistrationRequestType" />
+    <element name="correctionRequest" type="msg:CorrectionRequestType" />
+    <element name="intakeResponse" type="brocom:IntakeResponseType" />
+
+
+    <!-- gemeenschappelijke fout berichten -->
+    <element name="parseFault" type="brocom:ParseFaultType" />
+
+
+    <!-- brondocumenten -->
+    <element name="CPT" type="msg:GeotechnicalCPTSurveyType" />
+
+    <!-- registration types -->
+    <complexType name="RegistrationRequestType">
+        <complexContent>
+            <extension base="brocom:RegistrationRequestType">
+                <sequence>
+                    <element name="sourceDocument" type="msg:SourceDocumentType" />
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="CorrectionRequestType">
+        <complexContent>
+            <extension base="brocom:CorrectionRequestType">
+                <sequence>
+                    <element name="correctionReason" type="msg:CorrectionReasonType" minOccurs="1" maxOccurs="1" />
+                    <element name="sourceDocument" type="msg:SourceDocumentType" />
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="SourceDocumentType">
+        <sequence minOccurs="1" maxOccurs="1">
+            <element ref="msg:CPT" />
+        </sequence>
+    </complexType>
+
+    <complexType name="GeotechnicalCPTSurveyType">
+        <sequence>
+            <element name="objectIdAccountableParty" type="string" minOccurs="1" maxOccurs="1" />
+            <element name="deliveryContext" type="cptcom:DeliveryContextType" minOccurs="1" maxOccurs="1" />
+            <element name="surveyPurpose" type="cptcom:SurveyPurposeType" minOccurs="1" maxOccurs="1" />
+            <element name="researchReportDate" type="brocom:PartialDateType" minOccurs="1" maxOccurs="1" />
+            <element name="cptStandard" type="cptcom:CPTStandardType" minOccurs="1" maxOccurs="1" />
+            <element name="additionalInvestigationPerformed" type="brocom:IndicationYesNoUnknownEnumeration" minOccurs="1" maxOccurs="1" />
+            <element name="researchOperator" type="brocom:ChamberOfCommerceNumberType" minOccurs="0" maxOccurs="1" />
+            <element name="deliveredLocation" type="cptcom:DeliveredLocationType" minOccurs="1" maxOccurs="1" />
+            <element name="deliveredVerticalPosition" type="cptcom:DeliveredVerticalPositionType" minOccurs="1" maxOccurs="1" />
+            <element name="additionalInvestigation" type="cptcom:AdditionalInvestigationType" minOccurs="0" maxOccurs="1" />
+            <element name="conePenetrometerSurvey" type="cptcom:ConePenetrometerSurveyType" minOccurs="1" maxOccurs="1" />
+        </sequence>
+    </complexType>
+
+    <complexType name="CorrectionReasonType">
+        <simpleContent>
+            <restriction base="gml:CodeWithAuthorityType">
+                <attribute name="codeSpace" type="anyURI" use="required" fixed="urn:bro:cpt:CorrectionReason" />
+            </restriction>
+        </simpleContent>
+    </complexType>
+
+</schema>

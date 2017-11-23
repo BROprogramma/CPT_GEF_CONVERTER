@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<swe:DataRecord id="EXAMPLE_03" xmlns:swe="http://www.opengis.net/swe/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xlink="http://www.w3.org/1999/xlink"
+    xsi:schemaLocation="http://www.opengis.net/swe/2.0 http://www.broservices.nl/profile/swe/1.0/swe-profile.xsd
+        http://www.opengis.net/gml/3.2 http://www.broservices.nl/profile/gml/1.0/gml-profile.xsd">
+
+    <swe:label>Conuspenetratietest resultaat record</swe:label>
+    <swe:description>Beschrijving/formaat van de parameters van een Conuspenetratietest</swe:description>
+    <swe:field name="penetrationLength">
+        <swe:Quantity>
+            <swe:nilValues>
+                <swe:NilValues>
+                    <swe:nilValue reason="urn:ogc:def:nil:OGC:unknown">-999999</swe:nilValue>
+                </swe:NilValues>
+            </swe:nilValues>
+            <swe:uom code="m" />
+        </swe:Quantity>
+    </swe:field>
+    <swe:field name="depth">
+        <swe:Quantity>
+            <swe:nilValues>
+                <swe:NilValues>
+                    <swe:nilValue reason="urn:ogc:def:nil:OGC:unknown">-999999</swe:nilValue>
+                </swe:NilValues>
+            </swe:nilValues>
+            <swe:uom code="m" />
+        </swe:Quantity>
+    </swe:field>
+    <swe:field name="elapsedTime">
+        <swe:Quantity>
+            <swe:nilValues>
+                <swe:NilValues>
+                    <swe:nilValue reason="urn:ogc:def:nil:OGC:unknown">-999999</swe:nilValue>
+                </swe:NilValues>
+            </swe:nilValues>
+            <swe:uom code="s" />
+        </swe:Quantity>
+    </swe:field>
+    <swe:field name="coneResistance">
+        <swe:Quantity>
+            <swe:nilValues>
+                <swe:NilValues>
+                    <swe:nilValue reason="urn:ogc:def:nil:OGC:unknown">-999999</swe:nilValue>
+                </swe:NilValues>
+            </swe:nilValues>
+            <swe:uom code="MPa" />
+        </swe:Quantity>
+    </swe:field>
+    <swe:field name="correctedConeResistance">
+        <swe:Quantity>
+            <swe:nilValues>
+                <swe:NilValues>
+                    <swe:nilValue reason="urn:ogc:def:nil:OGC:unknown">-999999</swe:nilValue>
+                </swe:NilValues>
+            </swe:nilValues>
+            <swe:uom code="MPa" />
+        </swe:Quantity>
+    </swe:field>
+    <swe:field name="netConeResistance">
+        <swe:Quantity>
+            <swe:nilValues>
+                <swe:NilValues>
+                    <swe:nilValue reason="urn:ogc:def:nil:OGC:unknown">-999999</swe:nilValue>
+                </swe:NilValues>
+            </swe:nilValues>
+            <swe:uom code="MPa" />
+        </swe:Quantity>
+    </swe:field>
+    <swe:field name="magneticFieldStrengthX">
+        <swe:Quantity>
+            <swe:nilValues>
+                <swe:NilValues>
+                    <swe:nilValue reason="urn:ogc:def:nil:OGC:unknown">-999999</swe:nilValue>
+                </swe:NilValues>
+            </swe:nilValues>
+            <swe:uom code="nT" />
+        </swe:Quantity>
+    </swe:field>
+    <swe:field name="magneticFieldStrengthY">
+        <swe:Quantity>
+            <swe:nilValues>
+                <swe:NilValues>
+                    <swe:nilValue reason="urn:ogc:def:nil:OGC:unknown">-999999</swe:nilValue>
+                </swe:NilValues>
+            </swe:nilValues>
+            <swe:uom code="nT" />
+        </swe:Quantity>
+    </swe:field>
+    <swe:field name="magneticFieldStrengthZ">
+        <swe:Quantity>
+            <swe:nilValues>
+                <swe:NilValues>
+                    <swe:nilValue reason="urn:ogc:def:nil:OGC:unknown">-999999</swe:nilValue>
+                </swe:NilValues>
+            </swe:nilValues>
+            <swe:uom code="nT" />
+        </swe:Quantity>
+    </swe:field>
+    <swe:field name="magneticFieldStrengthTotal">
+        <swe:Quantity>
+            <swe:nilValues>
+                <swe:NilValues>
+                    <swe:nilValue reason="urn:ogc:def:nil:OGC:unknown">-999999</swe:nilValue>
+                </swe:NilValues>
+            </swe:nilValues>
+            <swe:uom code="nT" />
+        </swe:Quantity>
+    </swe:field>
+    <swe:field name="electricalConductivity">
+        <swe:Quantity>
+            <swe:nilValues>
+                <swe:NilValues>
+                    <swe:nilValue reason="urn:ogc:def:nil:OGC:unknown">-999999</swe:nilValue>
+                </swe:NilValues>
+            </swe:nilValues>
+            <swe:uom code="S/m" />
+        </swe:Quantity>
+    </swe:field>
+    <swe:field name="inclinationEW">
+        <swe:Quantity>
+            <swe:nilValues>
+                <swe:NilValues>
+                    <swe:nilValue reason="urn:ogc:def:nil:OGC:unknown">-999999</swe:nilValue>
+                </swe:NilValues>
+            </swe:nilValues>
+            <swe:uom code="deg" />
+        </swe:Quantity>
+    </swe:field>
+    <swe:field name="inclinationNS">
+        <swe:Quantity>
+            <swe:nilValues>
+                <swe:NilValues>
+                    <swe:nilValue reason="urn:ogc:def:nil:OGC:unknown">-999999</swe:nilValue>
+                </swe:NilValues>
+            </swe:nilValues>
+            <swe:uom code="deg" />
+        </swe:Quantity>
+    </swe:field>
+    <swe:field name="inclinationX">
+        <swe:Quantity>
+            <swe:nilValues>
+                <swe:NilValues>
+                    <swe:nilValue reason="urn:ogc:def:nil:OGC:unknown">-999999</swe:nilValue>
+                </swe:NilValues>
+            </swe:nilValues>
+            <swe:uom code="deg" />
+        </swe:Quantity>
+    </swe:field>
+    <swe:field name="inclinationY">
+        <swe:Quantity>
+            <swe:nilValues>
+                <swe:NilValues>
+                    <swe:nilValue reason="urn:ogc:def:nil:OGC:unknown">-999999</swe:nilValue>
+                </swe:NilValues>
+            </swe:nilValues>
+            <swe:uom code="deg" />
+        </swe:Quantity>
+    </swe:field>
+    <swe:field name="inclinationResultant">
+        <swe:Quantity>
+            <swe:nilValues>
+                <swe:NilValues>
+                    <swe:nilValue reason="urn:ogc:def:nil:OGC:unknown">-999999</swe:nilValue>
+                </swe:NilValues>
+            </swe:nilValues>
+            <swe:uom code="deg" />
+        </swe:Quantity>
+    </swe:field>
+    <swe:field name="magneticInclination">
+        <swe:Quantity>
+            <swe:nilValues>
+                <swe:NilValues>
+                    <swe:nilValue reason="urn:ogc:def:nil:OGC:unknown">-999999</swe:nilValue>
+                </swe:NilValues>
+            </swe:nilValues>
+            <swe:uom code="deg" />
+        </swe:Quantity>
+    </swe:field>
+    <swe:field name="magneticDeclination">
+        <swe:Quantity>
+            <swe:nilValues>
+                <swe:NilValues>
+                    <swe:nilValue reason="urn:ogc:def:nil:OGC:unknown">-999999</swe:nilValue>
+                </swe:NilValues>
+            </swe:nilValues>
+            <swe:uom code="deg" />
+        </swe:Quantity>
+    </swe:field>
+    <swe:field name="localFriction">
+        <swe:Quantity>
+            <swe:nilValues>
+                <swe:NilValues>
+                    <swe:nilValue reason="urn:ogc:def:nil:OGC:unknown">-999999</swe:nilValue>
+                </swe:NilValues>
+            </swe:nilValues>
+            <swe:uom code="MPa" />
+        </swe:Quantity>
+    </swe:field>
+    <swe:field name="poreRatio">
+        <swe:Quantity>
+            <swe:nilValues>
+                <swe:NilValues>
+                    <swe:nilValue reason="urn:ogc:def:nil:OGC:unknown">-999999</swe:nilValue>
+                </swe:NilValues>
+            </swe:nilValues>
+            <swe:uom code="1" />
+        </swe:Quantity>
+    </swe:field>
+    <swe:field name="temperature">
+        <swe:Quantity>
+            <swe:nilValues>
+                <swe:NilValues>
+                    <swe:nilValue reason="urn:ogc:def:nil:OGC:unknown">-999999</swe:nilValue>
+                </swe:NilValues>
+            </swe:nilValues>
+            <swe:uom code="degC" />
+        </swe:Quantity>
+    </swe:field>
+    <swe:field name="porePressureU1">
+        <swe:Quantity>
+            <swe:nilValues>
+                <swe:NilValues>
+                    <swe:nilValue reason="urn:ogc:def:nil:OGC:unknown">-999999</swe:nilValue>
+                </swe:NilValues>
+            </swe:nilValues>
+            <swe:uom code="MPa" />
+        </swe:Quantity>
+    </swe:field>
+    <swe:field name="porePressureU2">
+        <swe:Quantity>
+            <swe:nilValues>
+                <swe:NilValues>
+                    <swe:nilValue reason="urn:ogc:def:nil:OGC:unknown">-999999</swe:nilValue>
+                </swe:NilValues>
+            </swe:nilValues>
+            <swe:uom code="MPa" />
+        </swe:Quantity>
+    </swe:field>
+    <swe:field name="porePressureU3">
+        <swe:Quantity>
+            <swe:nilValues>
+                <swe:NilValues>
+                    <swe:nilValue reason="urn:ogc:def:nil:OGC:unknown">-999999</swe:nilValue>
+                </swe:NilValues>
+            </swe:nilValues>
+            <swe:uom code="MPa" />
+        </swe:Quantity>
+    </swe:field>
+    <swe:field name="frictionRatio">
+        <swe:Quantity>
+            <swe:nilValues>
+                <swe:NilValues>
+                    <swe:nilValue reason="urn:ogc:def:nil:OGC:unknown">-999999</swe:nilValue>
+                </swe:NilValues>
+            </swe:nilValues>
+            <swe:uom code="%" />
+        </swe:Quantity>
+    </swe:field>
+</swe:DataRecord>

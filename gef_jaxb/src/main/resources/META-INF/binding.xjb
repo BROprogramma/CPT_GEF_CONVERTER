@@ -1,0 +1,124 @@
+<jaxb:bindings version="1.0" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" jaxb:extensionBindingPrefixes="xjc">
+    <jaxb:globalBindings 
+        fixedAttributeAsConstantProperty="true" 
+        typesafeEnumBase="xs:string" 
+        typesafeEnumMemberName="generateName" 
+        generateIsSetMethod="true">
+        <xjc:serializable/>
+        <xjc:noValidator />
+        <xjc:noValidatingUnmarshaller />
+    </jaxb:globalBindings>
+
+    <!-- package name -->
+    <jaxb:bindings schemaLocation="http://schema.broservices.nl/profile/gml/1.0/gml-profile.xsd" node="/xs:schema">
+        <jaxb:schemaBindings>
+            <jaxb:package name="net.opengis.gml.v_3_2_1" />
+            <jaxb:nameXmlTransform>
+                <jaxb:elementName suffix="Element" />
+            </jaxb:nameXmlTransform>
+        </jaxb:schemaBindings>
+    </jaxb:bindings>
+
+    <jaxb:bindings schemaLocation="http://schema.broservices.nl/profile/gml/1.0/gml-profile.xsd" node="/xs:schema">
+    
+        <jaxb:bindings multiple="true" node="//xs:complexType[@name='MeasureType']">
+            <jaxb:property>
+                <jaxb:baseType name="java.math.BigDecimal" />
+            </jaxb:property>
+        </jaxb:bindings>
+    </jaxb:bindings>
+ 
+    <jaxb:bindings schemaLocation="http://schema.broservices.nl/profile/gml/1.0/gml-profile.xsd" node="/xs:schema">
+        <jaxb:bindings multiple="true" node="//xs:complexType[@name='DirectPositionType']">
+            <jaxb:property>
+                <jaxb:baseType name="java.math.BigDecimal" />
+            </jaxb:property>
+        </jaxb:bindings>
+        <jaxb:bindings multiple="true" node="//xs:complexType[@name='DirectPositionListType']">
+            <jaxb:property>
+                <jaxb:baseType name="java.math.BigDecimal" />
+            </jaxb:property>
+        </jaxb:bindings>
+    </jaxb:bindings>
+    
+    <!--  package name -->
+    <jaxb:bindings schemaLocation="http://schema.broservices.nl/profile/om/1.0/om-profile.xsd" node="/xs:schema">
+        <jaxb:schemaBindings>
+            <jaxb:package name="net.opengis.om.v_2_0" />
+            <jaxb:nameXmlTransform>
+                <jaxb:elementName suffix="Element" />
+            </jaxb:nameXmlTransform>
+        </jaxb:schemaBindings>
+    </jaxb:bindings>   
+    
+
+    <!-- package name -->
+    <jaxb:bindings schemaLocation="http://schema.broservices.nl/profile/swe/1.0/swe-profile.xsd" node="/xs:schema">
+        <jaxb:schemaBindings>
+            <jaxb:package name="net.opengis.swe.v_2_0" />
+            <jaxb:nameXmlTransform>
+                <jaxb:elementName suffix="Element" />
+            </jaxb:nameXmlTransform>
+        </jaxb:schemaBindings>
+    </jaxb:bindings>
+
+    <!-- fix for missing mixed="true" -->
+    <jaxb:bindings schemaLocation="http://schema.broservices.nl/profile/swe/1.0/swe-profile.xsd" node="/xs:schema">
+        <jaxb:bindings multiple="true" node="//xs:complexType[@name='DataArrayType']/xs:complexContent/xs:extension/xs:sequence/xs:element[@name='values']">
+            <jaxb:property name="valuesBase" />
+        </jaxb:bindings>
+    </jaxb:bindings>
+
+
+    <!-- package name -->
+    <jaxb:bindings schemaLocation="http://schema.broservices.nl/profile/sa/1.0/sa-profile.xsd" node="/xs:schema">
+        <jaxb:schemaBindings>
+            <jaxb:package name="net.opengis.sa.v_2_0" />
+            <jaxb:nameXmlTransform>
+                <jaxb:elementName suffix="Element" />
+            </jaxb:nameXmlTransform>
+        </jaxb:schemaBindings>
+        
+        <jaxb:bindings multiple="true" node="//xs:element[@nillable='true'][@name='sampledFeature'][@maxOccurs='unbounded'][@type]">
+            <jaxb:property generateElementProperty="true" />
+        </jaxb:bindings>
+                
+    </jaxb:bindings>
+
+    <!--  BRO Common -->
+    <jaxb:bindings schemaLocation="http://schema.broservices.nl/xsd/brocommon/3.0/brocommon.xsd" node="/xs:schema">
+        <jaxb:schemaBindings>
+            <jaxb:package name="nl.broservices.xsd.brocommon.v_3_0" />
+        </jaxb:schemaBindings>    
+    </jaxb:bindings>     
+               
+    
+    <!--  CPT -->
+    <jaxb:bindings schemaLocation="http://schema.broservices.nl/xsd/cptcommon/1.1/cptcommon.xsd" node="/xs:schema">
+        <jaxb:schemaBindings>
+            <jaxb:package name="nl.broservices.xsd.cptcommon.v_1_1" />
+        </jaxb:schemaBindings>
+        
+        <jaxb:bindings multiple="true" node="//xs:element[@nillable='true'][@minOccurs='1'][@maxOccurs='1'][@type]">
+            <jaxb:property generateElementProperty="true" />
+        </jaxb:bindings>
+        
+        <jaxb:bindings multiple="true" node="//xs:complexType[@name='CptObservationType']">
+            <jaxb:class ref="nl.broservices.xsd.cptcommon.v_1_1.CptObservationType"/>
+        </jaxb:bindings>
+        
+        <jaxb:bindings multiple="true" node="//xs:complexType[@name='DisObservationType']">
+            <jaxb:class ref="nl.broservices.xsd.cptcommon.v_1_1.DisObservationType"/>
+        </jaxb:bindings>
+
+    </jaxb:bindings>
+
+    <jaxb:bindings schemaLocation="http://schema.broservices.nl/xsd/iscpt/1.1/iscpt-messages.xsd" node="/xs:schema">
+        
+        <jaxb:schemaBindings>
+            <jaxb:package name="nl.broservices.xsd.iscpt.v_1_1" />
+        </jaxb:schemaBindings>
+        
+    </jaxb:bindings> 
+
+</jaxb:bindings>

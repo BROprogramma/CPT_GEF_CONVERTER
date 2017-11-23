@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:cpt="http://www.broservices.nl/xsd/cptcommon/1.1" 
+        xmlns:brocom="http://www.broservices.nl/xsd/brocommon/3.0" 
+        xmlns:gml="http://www.opengis.net/gml/3.2" 
+        xmlns:om="http://www.opengis.net/om/2.0"
+        xmlns:sa="http://www.opengis.net/sampling/2.0" 
+        xmlns:swe="http://www.opengis.net/swe/2.0" 
+        xmlns="http://www.w3.org/2001/XMLSchema" 
+        targetNamespace="http://www.broservices.nl/xsd/cptcommon/1.1"
+        elementFormDefault="qualified" version="1.1.0">
+
+    <import namespace="http://www.broservices.nl/xsd/brocommon/3.0" schemaLocation="http://schema.broservices.nl/xsd/brocommon/3.0/brocommon.xsd" />
+    <import namespace="http://www.opengis.net/swe/2.0" schemaLocation="http://schema.broservices.nl/profile/swe/1.0/swe-profile.xsd" />
+    <import namespace="http://www.opengis.net/sampling/2.0" schemaLocation="http://schema.broservices.nl/profile/sa/1.0/sa-profile.xsd" />
+    <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schema.broservices.nl/profile/gml/1.0/gml-profile.xsd" />
+    <import namespace="http://www.opengis.net/om/2.0" schemaLocation="http://schema.broservices.nl/profile/om/1.0/om-profile.xsd"/>
+
+
+    <element name="DeliveredLocation" type="cpt:DeliveredLocationType" />
+    <complexType name="DeliveredLocationType">
+        <sequence>
+            <element name="location" type="gml:PointType" minOccurs="1" maxOccurs="1" />
+            <element name="horizontalPositioningDate" type="brocom:PartialDateType" minOccurs="1" maxOccurs="1" />
+            <element name="horizontalPositioningMethod" type="cpt:HorizontalPositioningMethodType" minOccurs="1" maxOccurs="1" />
+            <element name="horizontalPositioningOperator" type="brocom:ChamberOfCommerceNumberType" minOccurs="0" maxOccurs="1" />
+        </sequence>
+    </complexType>
+
+    <element name="DeliveredVerticalPosition" type="cpt:DeliveredVerticalPositionType" />
+    <complexType name="DeliveredVerticalPositionType">
+        <sequence>
+            <element name="localVerticalReferencePoint" type="cpt:LocalVerticalReferencePointType" minOccurs="1" maxOccurs="1" />
+            <element name="offset" type="cpt:OffsetType" minOccurs="1" maxOccurs="1" nillable="true" />
+            <element name="waterDepth" type="cpt:OffsetType" minOccurs="0" maxOccurs="1" nillable="true" />
+            <element name="verticalDatum" type="cpt:VerticalDatumType" minOccurs="1" maxOccurs="1" />
+            <element name="verticalPositioningDate" type="brocom:PartialDateType" minOccurs="1" maxOccurs="1" nillable="true" />
+            <element name="verticalPositioningMethod" type="cpt:VerticalPositioningMethodType" minOccurs="1" maxOccurs="1" />
+            <element name="verticalPositioningOperator" type="brocom:ChamberOfCommerceNumberType" minOccurs="0" maxOccurs="1" />
+        </sequence>
+    </complexType>
+
+    <element name="AdditionalInvestigation" type="cpt:AdditionalInvestigationType" />
+    <complexType name="AdditionalInvestigationType">
+        <sequence>
+            <element name="investigationDate" type="brocom:PartialDateType" minOccurs="1" maxOccurs="1" />
+            <element name="conditions" type="string" minOccurs="0" maxOccurs="1" />
+            <element name="surfaceDescription" type="string" minOccurs="0" maxOccurs="1" />
+            <element name="groundwaterLevel" type="cpt:LayerDepthType" minOccurs="0" maxOccurs="1" />
+            <element name="removedLayer" type="cpt:RemovedLayerType" minOccurs="0" maxOccurs="unbounded" />
+        </sequence>
+    </complexType>
+
+    <element name="RemovedLayer" type="cpt:RemovedLayerType" />
+    <complexType name="RemovedLayerType">
+        <sequence>
+            <element name="sequenceNumber" type="integer" minOccurs="1" maxOccurs="1" />
+            <element name="upperBoundary" type="cpt:LayerDepthType" minOccurs="1" maxOccurs="1" />
+            <element name="lowerBoundary" type="cpt:LayerDepthType" minOccurs="1" maxOccurs="1" />
+            <element name="description" type="string" minOccurs="1" maxOccurs="1" />
+        </sequence>
+    </complexType>
+
+    <element name="ConePenetrometerSurvey" type="cpt:ConePenetrometerSurveyType" substitutionGroup="sa:SF_SamplingFeature" />
+    <complexType name="ConePenetrometerSurveyType">
+        <complexContent>
+            <extension base="sa:SF_SamplingFeatureType">
+                <sequence>
+                    <element name="dissipationTestPerformed" type="brocom:IndicationYesNoEnumeration" minOccurs="1" maxOccurs="1" />
+                    <element name="finalProcessingDate" type="brocom:PartialDateType" minOccurs="1" maxOccurs="1" />
+                    <element name="cptMethod" type="cpt:CPTMethodType" minOccurs="1" maxOccurs="1" />
+                    <element name="qualityClass" type="cpt:QualityClassType" minOccurs="1" maxOccurs="1" />
+                    <element name="stopCriterion" type="cpt:StopCriterionType" minOccurs="1" maxOccurs="1" />
+                    <element name="sensorAzimuth" type="cpt:AzimuthType" minOccurs="0" maxOccurs="1" />
+                    <element name="trajectory" type="cpt:TrajectoryType" minOccurs="1" maxOccurs="1" />
+                    <element name="conePenetrometer" type="cpt:ConePenetrometerType" minOccurs="1" maxOccurs="1" />
+                    <element name="conePenetrationTest" type="cpt:ConePenetrationTestType" minOccurs="1" maxOccurs="1" />
+                    <element name="dissipationTest" type="cpt:DissipationTestType" minOccurs="0" maxOccurs="unbounded" />
+                    <element name="procedure" type="cpt:ProcessingType" minOccurs="1" maxOccurs="1" />
+                    <element name="parameters" type="cpt:ParametersType" minOccurs="1" maxOccurs="1" />
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <element name="Parameters" type="cpt:ParametersType" />
+    <complexType name="ParametersType">
+        <sequence>
+            <element name="penetrationLength" type="brocom:IndicationYesNoEnumeration" minOccurs="1" maxOccurs="1" />
+            <element name="depth" type="brocom:IndicationYesNoEnumeration" minOccurs="1" maxOccurs="1" />
+            <element name="elapsedTime" type="brocom:IndicationYesNoEnumeration" minOccurs="1" maxOccurs="1" />
+            <element name="coneResistance" type="brocom:IndicationYesNoEnumeration" minOccurs="1" maxOccurs="1" />
+            <element name="correctedConeResistance" type="brocom:IndicationYesNoEnumeration" minOccurs="1" maxOccurs="1" />
+            <element name="netConeResistance" type="brocom:IndicationYesNoEnumeration" minOccurs="1" maxOccurs="1" />
+            <element name="magneticFieldStrengthX" type="brocom:IndicationYesNoEnumeration" minOccurs="1" maxOccurs="1" />
+            <element name="magneticFieldStrengthY" type="brocom:IndicationYesNoEnumeration" minOccurs="1" maxOccurs="1" />
+            <element name="magneticFieldStrengthZ" type="brocom:IndicationYesNoEnumeration" minOccurs="1" maxOccurs="1" />
+            <element name="magneticFieldStrengthTotal" type="brocom:IndicationYesNoEnumeration" minOccurs="1" maxOccurs="1" />
+            <element name="electricalConductivity" type="brocom:IndicationYesNoEnumeration" minOccurs="1" maxOccurs="1" />
+            <element name="inclinationEW" type="brocom:IndicationYesNoEnumeration" minOccurs="1" maxOccurs="1" />
+            <element name="inclinationNS" type="brocom:IndicationYesNoEnumeration" minOccurs="1" maxOccurs="1" />
+            <element name="inclinationX" type="brocom:IndicationYesNoEnumeration" minOccurs="1" maxOccurs="1" />
+            <element name="inclinationY" type="brocom:IndicationYesNoEnumeration" minOccurs="1" maxOccurs="1" />
+            <element name="inclinationResultant" type="brocom:IndicationYesNoEnumeration" minOccurs="1" maxOccurs="1" />
+            <element name="magneticInclination" type="brocom:IndicationYesNoEnumeration" minOccurs="1" maxOccurs="1" />
+            <element name="magneticDeclination" type="brocom:IndicationYesNoEnumeration" minOccurs="1" maxOccurs="1" />
+            <element name="localFriction" type="brocom:IndicationYesNoEnumeration" minOccurs="1" maxOccurs="1" />
+            <element name="poreRatio" type="brocom:IndicationYesNoEnumeration" minOccurs="1" maxOccurs="1" />
+            <element name="temperature" type="brocom:IndicationYesNoEnumeration" minOccurs="1" maxOccurs="1" />
+            <element name="porePressureU1" type="brocom:IndicationYesNoEnumeration" minOccurs="1" maxOccurs="1" />
+            <element name="porePressureU2" type="brocom:IndicationYesNoEnumeration" minOccurs="1" maxOccurs="1" />
+            <element name="porePressureU3" type="brocom:IndicationYesNoEnumeration" minOccurs="1" maxOccurs="1" />
+            <element name="frictionRatio" type="brocom:IndicationYesNoEnumeration" minOccurs="1" maxOccurs="1" />
+        </sequence>
+    </complexType>
+
+    <element name="cptResult" type="cpt:ConePenetrationTestResultType" substitutionGroup="om:result" />
+
+    <complexType name="CptObservationType">
+        <complexContent>
+            <restriction base="om:OM_ObservationType">
+                <sequence>
+                    <group ref="om:OM_CommonProperties" />
+                    <element ref="cpt:cptResult" />
+                </sequence>
+            </restriction>
+        </complexContent>
+    </complexType>
+
+    <complexType name="ConePenetrationTestType">
+        <complexContent>
+            <extension base="cpt:CptObservationType" />
+        </complexContent>
+    </complexType>
+
+
+    <element name="Trajectory" type="cpt:TrajectoryType" />
+    <complexType name="TrajectoryType">
+        <sequence>
+            <element name="predrilledDepth" type="cpt:LayerDepthType" minOccurs="1" maxOccurs="1" nillable="true" />
+            <element name="finalDepth" type="cpt:ConePenetrationDepthType" minOccurs="1" maxOccurs="1" />
+        </sequence>
+    </complexType>
+
+    <element name="ConePenetrationTestResult" type="cpt:ConePenetrationTestResultType" substitutionGroup="swe:DataArray" />
+    <complexType name="ConePenetrationTestResultType">
+        <complexContent>
+            <extension base="swe:DataArrayType">
+                <sequence>
+                    <element minOccurs="1" maxOccurs="1" name="values">
+                        <complexType>
+                            <complexContent mixed="true">
+                                <extension base="swe:EncodedValuesPropertyType" />
+                            </complexContent>
+                        </complexType>
+                    </element>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+
+    <element name="disResult" type="cpt:DissipationTestResultType" substitutionGroup="om:result" />
+
+    <complexType name="DisObservationType">
+        <complexContent>
+            <restriction base="om:OM_ObservationType">
+                <sequence>
+                    <group ref="om:OM_CommonProperties" />
+                    <element ref="cpt:disResult" />
+                </sequence>
+            </restriction>
+        </complexContent>
+    </complexType>
+
+    <complexType name="DissipationTestType">
+        <complexContent>
+            <extension base="cpt:DisObservationType">
+                <sequence>
+                    <element name="penetrationLength" type="cpt:ConePenetrationDepthType" minOccurs="1" maxOccurs="1" />
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <element name="DissipationTestResult" type="cpt:DissipationTestResultType" substitutionGroup="swe:DataArray" />
+    <complexType name="DissipationTestResultType">
+        <complexContent>
+            <extension base="swe:DataArrayType">
+                <sequence>
+                    <element minOccurs="1" maxOccurs="1" name="values">
+                        <complexType>
+                            <complexContent mixed="true">
+                                <extension base="swe:EncodedValuesPropertyType" />
+                            </complexContent>
+                        </complexType>
+                    </element>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <element name="Processing" type="cpt:ProcessingType" />
+    <complexType name="ProcessingType">
+        <sequence>
+            <element name="interruptionProcessingPerformed" type="brocom:IndicationYesNoUnknownEnumeration" minOccurs="1" maxOccurs="1" />
+            <element name="expertCorrectionPerformed" type="brocom:IndicationYesNoUnknownEnumeration" minOccurs="1" maxOccurs="1" />
+            <element name="signalProcessingPerformed" type="brocom:IndicationYesNoUnknownEnumeration" minOccurs="1" maxOccurs="1" />
+        </sequence>
+    </complexType>
+
+    <element name="ConePenetrometer" type="cpt:ConePenetrometerType" />
+    <complexType name="ConePenetrometerType">
+        <sequence>
+            <element name="description" type="string" minOccurs="1" maxOccurs="1" />
+            <element name="conePenetrometerType" type="string" minOccurs="1" maxOccurs="1" />
+            <element name="coneSurfaceArea" type="cpt:ConeSurfaceAreaType" minOccurs="1" maxOccurs="1" nillable="true" />
+            <element name="coneDiameter" type="cpt:ConeDiameterType" minOccurs="0" maxOccurs="1" />
+            <element name="coneSurfaceQuotient" type="cpt:ConeSurfaceQuotientType" minOccurs="0" maxOccurs="1" />
+            <element name="coneToFrictionSleeveDistance" type="cpt:ConeToFrictionSleeveDistanceType" minOccurs="0" maxOccurs="1" nillable="true" />
+            <element name="frictionSleeveSurfaceArea" type="cpt:FrictionSleeveSurfaceAreaType" minOccurs="0" maxOccurs="1" nillable="true" />
+            <element name="frictionSleeveSurfaceQuotient" type="cpt:FrictionSleeveSurfaceQuotientType" minOccurs="0" maxOccurs="1" nillable="true" />
+            <element name="zeroLoadMeasurement" type="cpt:ZeroLoadMeasurementType" minOccurs="0" maxOccurs="1" nillable="true" />
+        </sequence>
+    </complexType>
+
+    <element name="ZeroLoadMeasurement" type="cpt:ZeroLoadMeasurementType" />
+    <complexType name="ZeroLoadMeasurementType">
+        <sequence>
+            <element name="coneResistanceBefore" type="cpt:ConeResistanceType" minOccurs="1" maxOccurs="1" />
+            <element name="coneResistanceAfter" type="cpt:ConeResistanceType" minOccurs="1" maxOccurs="1" />
+            <element name="electricalConductivityBefore" type="cpt:ElectricalConductivityType" minOccurs="0" maxOccurs="1" />
+            <element name="electricalConductivityAfter" type="cpt:ElectricalConductivityType" minOccurs="0" maxOccurs="1" />
+            <element name="inclinationEWBefore" type="cpt:InclinationType" minOccurs="0" maxOccurs="1" />
+            <element name="inclinationEWAfter" type="cpt:InclinationType" minOccurs="0" maxOccurs="1" />
+            <element name="inclinationNSBefore" type="cpt:InclinationType" minOccurs="0" maxOccurs="1" />
+            <element name="inclinationNSAfter" type="cpt:InclinationType" minOccurs="0" maxOccurs="1" />
+            <element name="inclinationResultantBefore" type="cpt:InclinationType" minOccurs="0" maxOccurs="1" />
+            <element name="inclinationResultantAfter" type="cpt:InclinationType" minOccurs="0" maxOccurs="1" />
+            <element name="localFrictionBefore" type="cpt:LocalFrictionType" minOccurs="0" maxOccurs="1" />
+            <element name="localFrictionAfter" type="cpt:LocalFrictionType" minOccurs="0" maxOccurs="1" />
+            <element name="porePressureU1Before" type="cpt:PorePressureType" minOccurs="0" maxOccurs="1" />
+            <element name="porePressureU1After" type="cpt:PorePressureType" minOccurs="0" maxOccurs="1" />
+            <element name="porePressureU2Before" type="cpt:PorePressureType" minOccurs="0" maxOccurs="1" />
+            <element name="porePressureU2After" type="cpt:PorePressureType" minOccurs="0" maxOccurs="1" />
+            <element name="porePressureU3Before" type="cpt:PorePressureType" minOccurs="0" maxOccurs="1" />
+            <element name="porePressureU3After" type="cpt:PorePressureType" minOccurs="0" maxOccurs="1" />
+        </sequence>
+    </complexType>
+
+    <complexType name="ConeDiameterType">
+        <simpleContent>
+            <restriction base="gml:MeasureType">
+                <attribute name="uom" type="gml:UomIdentifier" use="required" fixed="mm" />
+            </restriction>
+        </simpleContent>
+    </complexType>
+
+    <complexType name="ConeSurfaceAreaType">
+        <simpleContent>
+            <restriction base="gml:MeasureType">
+                <attribute name="uom" type="gml:UomIdentifier" use="required" fixed="mm2" />
+            </restriction>
+        </simpleContent>
+    </complexType>
+
+    <complexType name="FrictionSleeveSurfaceAreaType">
+        <simpleContent>
+            <restriction base="gml:MeasureType">
+                <attribute name="uom" type="gml:UomIdentifier" use="required" fixed="mm2" />
+            </restriction>
+        </simpleContent>
+    </complexType>
+
+    <complexType name="ConeToFrictionSleeveDistanceType">
+        <simpleContent>
+            <restriction base="gml:MeasureType">
+                <attribute name="uom" type="gml:UomIdentifier" use="required" fixed="mm" />
+            </restriction>
+        </simpleContent>
+    </complexType>
+
+
+    <complexType name="ConeSurfaceQuotientType">
+        <simpleContent>
+            <restriction base="gml:MeasureType">
+                <attribute name="uom" type="gml:UomIdentifier" use="required" fixed="1" />
+            </restriction>
+        </simpleContent>
+    </complexType>
+
+    <complexType name="FrictionSleeveSurfaceQuotientType">
+        <simpleContent>
+            <restriction base="gml:MeasureType">
+                <attribute name="uom" type="gml:UomIdentifier" use="required" fixed="1" />
+            </restriction>
+        </simpleContent>
+    </complexType>
+
+    <complexType name="AzimuthType">
+        <simpleContent>
+            <restriction base="gml:MeasureType">
+                <attribute name="uom" type="gml:UomIdentifier" use="required" fixed="deg" />
+            </restriction>
+        </simpleContent>
+    </complexType>
+
+    <complexType name="LocalFrictionType">
+        <simpleContent>
+            <restriction base="gml:MeasureType">
+                <attribute name="uom" type="gml:UomIdentifier" use="required" fixed="MPa" />
+            </restriction>
+        </simpleContent>
+    </complexType>
+
+    <complexType name="InclinationType">
+        <simpleContent>
+            <restriction base="gml:MeasureType">
+                <attribute name="uom" type="gml:UomIdentifier" use="required" fixed="deg" />
+            </restriction>
+        </simpleContent>
+    </complexType>
+
+    <complexType name="PorePressureType">
+        <simpleContent>
+            <restriction base="gml:MeasureType">
+                <attribute name="uom" type="gml:UomIdentifier" use="required" fixed="MPa" />
+            </restriction>
+        </simpleContent>
+    </complexType>
+
+    <complexType name="CPTMethodType">
+        <simpleContent>
+            <restriction base="gml:CodeWithAuthorityType">
+                <attribute name="codeSpace" type="anyURI" use="required" fixed="urn:bro:cpt:CPTMethod" />
+            </restriction>
+        </simpleContent>
+    </complexType>
+
+    <complexType name="QualityClassType">
+        <simpleContent>
+            <restriction base="gml:CodeWithAuthorityType">
+                <attribute name="codeSpace" type="anyURI" use="required" fixed="urn:bro:cpt:QualityClass" />
+            </restriction>
+        </simpleContent>
+    </complexType>
+
+    <complexType name="CPTStandardType">
+        <simpleContent>
+            <restriction base="gml:CodeWithAuthorityType">
+                <attribute name="codeSpace" type="anyURI" use="required" fixed="urn:bro:cpt:CPTStandard" />
+            </restriction>
+        </simpleContent>
+    </complexType>
+
+    <complexType name="SurveyPurposeType">
+        <simpleContent>
+            <restriction base="gml:CodeWithAuthorityType">
+                <attribute name="codeSpace" type="anyURI" use="required" fixed="urn:bro:cpt:SurveyPurpose" />
+            </restriction>
+        </simpleContent>
+    </complexType>
+
+    <complexType name="LocalVerticalReferencePointType">
+        <simpleContent>
+            <restriction base="gml:CodeWithAuthorityType">
+                <attribute name="codeSpace" type="anyURI" use="required" fixed="urn:bro:cpt:LocalVerticalReferencePoint" />
+            </restriction>
+        </simpleContent>
+    </complexType>
+
+    <complexType name="HorizontalPositioningMethodType">
+        <simpleContent>
+            <restriction base="gml:CodeWithAuthorityType">
+                <attribute name="codeSpace" type="anyURI" use="required" fixed="urn:bro:cpt:HorizontalPositioningMethod" />
+            </restriction>
+        </simpleContent>
+    </complexType>
+
+    <complexType name="VerticalPositioningMethodType">
+        <simpleContent>
+            <restriction base="gml:CodeWithAuthorityType">
+                <attribute name="codeSpace" type="anyURI" use="required" fixed="urn:bro:cpt:VerticalPositioningMethod" />
+            </restriction>
+        </simpleContent>
+    </complexType>
+
+    <complexType name="StopCriterionType">
+        <simpleContent>
+            <restriction base="gml:CodeWithAuthorityType">
+                <attribute name="codeSpace" type="anyURI" use="required" fixed="urn:bro:cpt:StopCriterion" />
+            </restriction>
+        </simpleContent>
+    </complexType>
+
+
+    <complexType name="OffsetType">
+        <simpleContent>
+            <restriction base="gml:MeasureType">
+                <attribute name="uom" type="gml:UomIdentifier" use="required" fixed="m" />
+            </restriction>
+        </simpleContent>
+    </complexType>
+
+    <complexType name="LayerDepthType">
+        <simpleContent>
+            <restriction base="gml:MeasureType">
+                <attribute name="uom" type="gml:UomIdentifier" use="required" fixed="m" />
+            </restriction>
+        </simpleContent>
+    </complexType>
+
+    <complexType name="ConePenetrationDepthType">
+        <simpleContent>
+            <restriction base="gml:MeasureType">
+                <attribute name="uom" type="gml:UomIdentifier" use="required" fixed="m" />
+            </restriction>
+        </simpleContent>
+    </complexType>
+
+    <complexType name="DepthType">
+        <simpleContent>
+            <restriction base="gml:MeasureType">
+                <attribute name="uom" type="gml:UomIdentifier" use="required" fixed="m" />
+            </restriction>
+        </simpleContent>
+    </complexType>
+
+    <complexType name="DepthIntervalType">
+        <sequence>
+            <element name="beginDepth" type="cpt:DepthType" minOccurs="1" maxOccurs="1" />
+            <element name="endDepth" type="cpt:DepthType" minOccurs="1" maxOccurs="1" />
+        </sequence>
+    </complexType>
+
+
+    <complexType name="ConeResistanceType">
+        <simpleContent>
+            <restriction base="gml:MeasureType">
+                <attribute name="uom" type="gml:UomIdentifier" use="required" fixed="MPa" />
+            </restriction>
+        </simpleContent>
+    </complexType>
+
+
+    <complexType name="ElectricalConductivityType">
+        <simpleContent>
+            <restriction base="gml:MeasureType">
+                <attribute name="uom" type="gml:UomIdentifier" use="required" fixed="S/m" />
+            </restriction>
+        </simpleContent>
+    </complexType>
+
+    <complexType name="DeliveryContextType">
+        <simpleContent>
+            <restriction base="gml:CodeWithAuthorityType">
+                <attribute name="codeSpace" type="anyURI" use="required" fixed="urn:bro:cpt:DeliveryContext" />
+            </restriction>
+        </simpleContent>
+    </complexType>
+
+    <complexType name="VerticalDatumType">
+        <simpleContent>
+            <restriction base="gml:CodeWithAuthorityType">
+                <attribute name="codeSpace" type="anyURI" use="required" fixed="urn:bro:cpt:VerticalDatum" />
+            </restriction>
+        </simpleContent>
+    </complexType>
+
+</schema>
+
+
+

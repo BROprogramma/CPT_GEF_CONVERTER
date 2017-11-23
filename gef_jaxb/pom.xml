@@ -1,0 +1,42 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+         <groupId>nl.broprogramme.gef</groupId>
+        <artifactId>gef_unmarshaller</artifactId>
+        <version>0.9-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>gef_jaxb</artifactId>
+    <name>GEF UNMARSHALLAR - JAXB</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.jvnet.jaxb2_commons</groupId>
+            <artifactId>jaxb2-basics-runtime</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.jvnet.jaxb2.maven2</groupId>
+                <artifactId>maven-jaxb2-plugin</artifactId>
+                <configuration>
+                    <schemaIncludes />
+                    <schemas>
+                        <schema>
+                            <url>http://schema.broservices.nl/xsd/iscpt/1.1/iscpt-messages.xsd</url>
+                        </schema>
+                    </schemas>
+                    <bindingDirectory>${project.build.resources[0].directory}/META-INF/</bindingDirectory>
+                    <bindingIncludes>
+                        <include>binding.xjb</include>
+                    </bindingIncludes>
+                    <catalog>${project.build.resources[0].directory}/META-INF/catalog.xml</catalog>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>
