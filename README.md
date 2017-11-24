@@ -1,6 +1,6 @@
-# BRO Conepenetrationtest Converter, README UNDER CONSTRUCTION!!
+# README UNDER CONSTRUCTION
+# BRO Conepenetrationtest Converter 
 
-[![GitHub forks](https://img.shields.io/github/forks/badges/shields.svg?style=social&label=Fork)](https://github.com/BROprogramma/CPT_GEF_CONVERTER/network/)
 [![License](https://img.shields.io/badge/License-EUPL%201.2-yellowgreen.svg)](https://opensource.org/licenses/EUPL-1.1)
 
 * [Contributing] (#contributing)
