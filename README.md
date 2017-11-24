@@ -32,7 +32,7 @@ rules to which they are checked, and the resulting IMBRO / IMBRO/A xml fields. P
 
 ## Requirements
 
-* Java8 is required on the path.
+* Java8 (JDK) is required on the path.
 * For building the code, [Maven](https://maven.apache.org/) version 3 or higher is required on the path.
 
 
