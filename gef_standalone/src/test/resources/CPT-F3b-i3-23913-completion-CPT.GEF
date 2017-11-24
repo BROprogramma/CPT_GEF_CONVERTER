@@ -153,7 +153,7 @@
 #LANGUAGE= NL
 #COMMENT= herhaling van test op 18-06-2015
 #OS= DOS
-#CHILD= 1, src/test/resources/CPT-F3b-i3-23913-completion-DISS.GEF, 1, m, sondeertrajectlengte, 2, dissipatietest
+#CHILD= 1, CPT-F3b-i3-23913-completion-DISS.GEF, 1, m, sondeertrajectlengte, 2, dissipatietest
 
 #COMMENT= ---- Test Case CPT-F3b-i3-23913 ----
 #COMMENT= Regime            : IMBRO

@@ -29,8 +29,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.LogManager;
@@ -88,24 +90,39 @@ public class ConvertGef {
                 return;
             }
 
+            List<String> filenames = new ArrayList<>();
+            Files.newDirectoryStream( Paths.get( cli.getInputDir() ), path -> isValidFile( path ) )
+                .forEach( path2 -> filenames.add( path2.toFile().getName() )   );
+
+            if ( filenames.isEmpty() ) {
+               LOG.log(Level.SEVERE, "Er kunnen geen GEF files gevonden worden in deze directory." );
+               return;
+
+            }
+
             List<byte[]> fileContents = new ArrayList<>();
-            List<String> filenames = Arrays.asList( cli.getArguments() );
-            filenames.forEach( filename -> fileContents.add( getFileContents( filename ) ) );
+            Files.newDirectoryStream( Paths.get( cli.getInputDir() ), path -> isValidFile( path ) )
+                .forEach( path2 -> fileContents.add( getFileContents( path2.toFile() )  )   );
+
+
             processGefFilesToXml( fileContents, filenames, cli );
         }
-        catch ( IllegalArgumentException ex ) {
+        catch ( IllegalArgumentException | IOException ex ) {
             Logger.getLogger( ConvertGef.class.getName() ).log( Level.SEVERE, null, ex );
         }
 
     }
 
-    private static byte[] getFileContents(String filename) throws IllegalArgumentException {
+    private static boolean isValidFile( Path path ) {
+        return path.toFile().isFile() && ( path.toString().endsWith( ".GEF" ) || path.toString().endsWith( ".gef" ) );
+    }
 
-        LOG.log( Level.INFO, "Reading file: {0}", filename );
+    private static byte[] getFileContents(File file) throws IllegalArgumentException {
 
-        File file = new File( filename );
+        LOG.log( Level.INFO, "Reading file: {0}", file );
+
         if ( !file.exists() ) {
-            LOG.log(Level.SEVERE, "[{0}] kan niet gevonden worden", filename);
+            LOG.log(Level.SEVERE, "[{0}] kan niet gevonden worden", file );
             throw new IllegalArgumentException();
         }
 

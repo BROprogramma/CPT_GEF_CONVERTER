@@ -22,13 +22,13 @@ package nl.bro.cpt.gef.main;
 
 import static org.fest.assertions.Assertions.assertThat;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.LogRecord;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import nl.bro.cpt.gef.main.util.TestHandler;
@@ -67,21 +67,26 @@ public class ConverGefTest {
     @Test
     public void testNonExistingFile() {
 
-        ConvertGef.main( new String[] { "-r", "test", "-t", "R", "-q", "IMBRO", "TEST.GEF" } );
+        // -- action
+        ConvertGef.main( new String[] { "-r", "test", "-t", "R", "-q", "IMBRO" } );
         List<String> messages = getMessages();
-        assertThat( messages.toString() ).contains( "kan niet gevonden worden" );
+
+        // -- verify
+        assertThat( messages.toString() ).contains( "Er kunnen geen GEF files gevonden worden in deze directory." );
 
     }
 
-    /**
-     * Ignore tot dat filenaam probleem is opgelost
-     */
     @Test
-    @Ignore
     public void testNormal() {
 
-        ConvertGef.main(
-            new String[] { "-r", "test", "-t", "R", "-q", "IMBRO", "-d", "target", "src/test/resources/CPT-F3b-i3-23913-completion-CPT.GEF",
-                "src/test/resources/CPT-F3b-i3-23913-completion-DISS.GEF" } );
+        // -- action
+        ConvertGef.main(  new String[] { "-r", "test", "-t", "R", "-q", "IMBRO", "-d", "target", "src/test/resources" } );
+
+        // -- verify
+        File file = new File( "target/CPT-F3b-i3-23913-completion-CPT.xml");
+        assertThat( file.exists() );
+
+        // -- cleanup
+        file.delete();
     }
 }

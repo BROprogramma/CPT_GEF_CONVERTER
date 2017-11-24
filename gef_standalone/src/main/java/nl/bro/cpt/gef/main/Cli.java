@@ -51,8 +51,8 @@ public class Cli {
     private String correctionReason = null;
     private String objectIdAccountableParty = null;
     private String outputDir = null;
+    private String inputDir = null;
     private boolean shouldExit = false;
-    private String[] arguments = null;
 
     public Cli(String[] args) {
         this.args = args;
@@ -79,7 +79,7 @@ public class Cli {
             handleRequestReference( cmd );
             handleTransactionType( cmd );
             handleOutputDir( cmd );
-            arguments = cmd.getArgs();
+            handleArgs( cmd );
         }
         catch ( ParseException e ) {
             LOG.log( Level.SEVERE, "Failed to parse comand line properties", e );
@@ -111,8 +111,8 @@ public class Cli {
         return objectIdAccountableParty;
     }
 
-    public String[] getArguments() {
-        return arguments;
+    public String getInputDir() {
+        return inputDir;
     }
 
     public boolean isShouldExit() {
@@ -125,7 +125,7 @@ public class Cli {
             // This prints out some help
             HelpFormatter formatter = new HelpFormatter();
             formatter.setWidth( 100 );
-            String cmdLineSyntax =  ConvertGef.class.getSimpleName() + "  -r <RR> -q <QR> [-t R | -t C -c <CR> -o <ID>] [-d <DIR>] <GEF_FILES>";
+            String cmdLineSyntax =  ConvertGef.class.getSimpleName() + "  -r <RR> -q <QR> [-t R | -t C -c <CR> -o <ID>] [-d <DIR>] <INPUT_DIR>";
             formatter.printHelp( cmdLineSyntax, options );
             shouldExit = true;
         }
@@ -148,12 +148,30 @@ public class Cli {
             outputDir = cmd.getOptionValue( "d" );
             File test = new File( outputDir );
             if ( !test.isDirectory() ) {
-                LOG.log( Level.SEVERE, "outputDirectory={0} does not exist!",outputDir  );
+                LOG.log( Level.SEVERE, "outputDirectory={0} does not exist or is not a directory.",outputDir  );
             }
         }
         else {
             outputDir = ".";
             LOG.log( Level.INFO, "Missing d option, using current directory as output." );
+        }
+    }
+    private void handleArgs(CommandLine cmd) {
+        switch ( cmd.getArgs().length ) {
+            case 0:
+                LOG.log( Level.INFO, "inputDirectory=current working directory" );
+                inputDir = ".";
+                break;
+            case 1:
+                LOG.log( Level.INFO, "inputDirectory={0}", cmd.getArgs() );
+                inputDir = cmd.getArgs()[ 0 ];
+                File test = new File( inputDir );
+                if ( !test.isDirectory() ) {
+                    LOG.log( Level.SEVERE, "inputDirectory={0} does not exist or is not a directory.",inputDir  );
+                }   break;
+            default:
+                LOG.log( Level.INFO, "Only one input directory is allowed, specified: %s", cmd.getArgList() );
+                break;
         }
     }
 

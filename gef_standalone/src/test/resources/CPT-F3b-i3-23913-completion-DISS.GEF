@@ -69,7 +69,7 @@
 #LANGUAGE= NL
 #COMMENT= geen
 #OS= DOS
-#PARENT= src/test/resources/CPT-F3b-i3-23913-completion-CPT.GEF, 1, m, sondeertrajectlengte, 2, dissipatietest
+#PARENT= CPT-F3b-i3-23913-completion-CPT.GEF, 1, m, sondeertrajectlengte, 2, dissipatietest
 
 #COMMENT= ---- Test Case CPT-F3b-i3-23913 ----
 #COMMENT= Regime            : IMBRO
