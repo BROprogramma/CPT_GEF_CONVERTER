@@ -57,7 +57,7 @@ all referred dissipation tests are present and are bound - not orphanaged - to a
 
 * package `nl.bro.cpt.gef.logic` is responsible for parsing the actual GEF file. It uses an [antlr](http://www.antlr.org/) definition file to generate the parser code. Initially the authors gauged
 that it was possible to capture the GEF standard in its entirety in a [`GefLexer.g4`](https://github.com/BROprogramma/CPT_GEF_CONVERTER/blob/master/gef_impl/src/main/antlr4/nl/bro/gef/antlr/GefLexer.g4) 
-and [`GefParser.g4`](https://github.com/BROprogramma/CPT_GEF_CONVERTER/blob/master/gef_impl/src/main/antlr4/nl/bro/gef/antlr/GefParser.g4). However, the GEF format proved to be too resilient to do
+and [`GefParser.g4`](https://github.com/BROprogramma/CPT_GEF_CONVERTER/blob/master/gef_impl/src/main/antlr4/nl/bro/gef/antlr/GefParser.g4). However, the GEF format proved to be too unstructured to do
 this. In the end, a minimal version has been put in place and the parser concept is used to populate the GEF data-transfer-objects.
 
 * package `nl.bro.cpt.gef.dto` contains the the GEF model files as so called data-transfer-objects (DTO's). The term DTO is a bit misleading because it suggests that data is actually transferred. However
