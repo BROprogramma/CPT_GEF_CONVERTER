@@ -23,7 +23,7 @@ for each change. Please start commits with the GitHub issue number `#<nr>`. Once
 
 Mapping documentation comes in 2 documents on this site: 
 
-* The [Handreiking](https://github.com/BROprogramma/CPT_GEF_CONVERTER/blob/master/gef_doc/20170627%20GEF-CPT%20Report%20naar%20IMBRO-XML%20-%20Handreiking%20v10.docx) (starters guide)): 
+* The [Handreiking](https://github.com/BROprogramma/CPT_GEF_CONVERTER/blob/master/gef_doc/20170627%20GEF-CPT%20Report%20naar%20IMBRO-XML%20-%20Handreiking%20v10.docx) (starters guide): 
 explains the basic principles and should be read prior to read the mapping itself.
 
 * The [Mapping](https://github.com/BROprogramma/CPT_GEF_CONVERTER/blob/master/gef_doc/20170627%20BRO%20CPT%20F3B%20GEF-mapping%20v40.xlsx): explains in full detail all fields on the GEF site, the 
@@ -39,7 +39,7 @@ rules to which they are checked, and the resulting IMBRO / IMBRO/A xml fields. P
 
 ### Building the source code
 
-The source code can be built by the `maven clean install` command on a linux / unix shell or in a windows command window.
+The source code can be built by the `maven clean install` command on a Linux / Unix shell or in a Windows command window.
 
 ### Generation of the XML parser
 
