@@ -15,7 +15,7 @@
 
 ## Contributing
 
-This project will not be released and neither be pushed (as Maven artefact) to a SonaType (Nexus) repository (unless there's a specific demand for this). 
+This project will not be released and neither be pushed (as Maven artefact) to a SonaType (Nexus) repository (unless there's a specific demand for this). It will remain in a version < 1.0.
 
 However, if you do want to contribute, this project follows the _Fork & Pull_ development approach. To get started just fork this repository to your GitHub account and create a new topic branch 
 for each change. Please start commits with the GitHub issue number `#<nr>`. Once you are done with your change, submit a pull request against the CPT_GEF_CONVERTER repo. 
@@ -24,11 +24,11 @@ for each change. Please start commits with the GitHub issue number `#<nr>`. Once
 
 Mapping documentation comes in 2 documents on this site: 
 
-* The [Handreiking](https://github.com/BROprogramma/CPT_GEF_CONVERTER/blob/master/gef_doc/20170627%20GEF-CPT%20Report%20naar%20IMBRO-XML%20-%20Handreiking%20v10.docx) (starters guide) . It explains the basic principles and 
-should be read prior to read the mapping itself.
+* The [Handreiking](https://github.com/BROprogramma/CPT_GEF_CONVERTER/blob/master/gef_doc/20170627%20GEF-CPT%20Report%20naar%20IMBRO-XML%20-%20Handreiking%20v10.docx) (starters guide)): 
+explains the basic principles and should be read prior to read the mapping itself.
 
-* The [Mapping](https://github.com/BROprogramma/CPT_GEF_CONVERTER/blob/master/gef_doc/20170627%20BRO%20CPT%20F3B%20GEF-mapping%20v40.xlsx) This explains in full detail all fields on the GEF site, the rules to which they
-are checked and the resulting IMBRO / IMBRO/A xml fields. Please *note* that rules concerning parties and geometry are not implemented since they do require on-line services.
+* The [Mapping](https://github.com/BROprogramma/CPT_GEF_CONVERTER/blob/master/gef_doc/20170627%20BRO%20CPT%20F3B%20GEF-mapping%20v40.xlsx): explains in full detail all fields on the GEF site, the 
+rules to which they are checked, and the resulting IMBRO / IMBRO/A xml fields. Please note that rules concerning parties and geometry are not implemented since they require on-line services.
 
 ## Requirements
 
@@ -40,7 +40,7 @@ are checked and the resulting IMBRO / IMBRO/A xml fields. Please *note* that rul
 
 ### Building the source code
 
-The source code can be build by the `maven clean install` command on a linux / unix shell or in a windows command window.
+The source code can be built by the `maven clean install` command on a linux / unix shell or in a windows command window.
 
 ### Generation of the XML parser
 
@@ -51,17 +51,17 @@ place manually to cope with observations [OGC observation and measurements](http
 
 ### Implementation of the mapper
 
-The implementation consists out of several packages:
+The implementation consists of several packages:
 
 * package `nl.bro.cpt.gef.logic` is responsible for searching a file list for cone penetration test gef files. It relates them to dissipation tests. Validation is performed on the consistency (e.g.
-all referred dissipation tests are present and are bound (not orphanaged) to a cone penetration test. This package supports `bulk handling` of gef files.
+all referred dissipation tests are present and are bound - not orphanaged - to a cone penetration test). This package supports `bulk handling` of gef files.
 
 * package `nl.bro.cpt.gef.logic` is responsible for parsing the actual GEF file. It uses an [antlr](http://www.antlr.org/) definition file to generate the parser code. Initially the authors gauged
 that it was possible to capture the GEF standard in its entirety in a [`GefLexer.g4`](https://github.com/BROprogramma/CPT_GEF_CONVERTER/blob/master/gef_impl/src/main/antlr4/nl/bro/gef/antlr/GefLexer.g4) 
 and [`GefParser.g4`](https://github.com/BROprogramma/CPT_GEF_CONVERTER/blob/master/gef_impl/src/main/antlr4/nl/bro/gef/antlr/GefParser.g4). However, the GEF format proved to be too resilient to do
 this. In the end, a minimal version has been put in place and the parser concept is used to populate the GEF data-transfer-objects.
 
-* package `nl.bro.cpt.gef.dto` contains the the GEF model files as so called data-transfer-objects (DTO's). The term DTO is a bit misleading, because it suggests that data is actually transferred. However
+* package `nl.bro.cpt.gef.dto` contains the the GEF model files as so called data-transfer-objects (DTO's). The term DTO is a bit misleading because it suggests that data is actually transferred. However
 their only purpose is an intermediate format. This intermediate format is validated against the business rules of the BRO as far as possible. Feedback is given to the user in GEF terminology. Bean 
 validation [JSR303](http://beanvalidation.org/1.0/spec/) is used to check the business rules. As implementation technology [Hibernate Validation 4] (http://hibernate.org/validator/) is used, with some
 customizations to support messages based on the "Entity.Attribute" concept. "Entity.Attribute" uniquely identfies an attribute in the BRO model. These "Entity.Attribute" coincide with the 
