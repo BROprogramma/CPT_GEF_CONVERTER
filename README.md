@@ -1,9 +1,8 @@
-# README UNDER CONSTRUCTION
 # BRO Conepenetrationtest Converter 
 
 [![License](https://img.shields.io/badge/License-EUPL%201.2-yellowgreen.svg)](https://opensource.org/licenses/EUPL-1.1)
 
-* [Contributing] (#contributing)
+* [Contributing](#contributing)
 * [Documentation](#documentation)
 * [Requirements](#requirements)
 * [Code Explanation](#code-explanation)
@@ -63,7 +62,7 @@ this. In the end, a minimal version has been put in place and the parser concept
 
 * package `nl.bro.cpt.gef.dto` contains the the GEF model files as so called data-transfer-objects (DTO's). The term DTO is a bit misleading because it suggests that data is actually transferred. However
 their only purpose is an intermediate format. This intermediate format is validated against the business rules of the BRO as far as possible. Feedback is given to the user in GEF terminology. Bean 
-validation [JSR303](http://beanvalidation.org/1.0/spec/) is used to check the business rules. As implementation technology [Hibernate Validation 4] (http://hibernate.org/validator/) is used, with some
+validation [JSR303](http://beanvalidation.org/1.0/spec/) is used to check the business rules. As implementation technology [Hibernate Validation 4](http://hibernate.org/validator/) is used, with some
 customizations to support messages based on the "Entity.Attribute" concept. "Entity.Attribute" uniquely identfies an attribute in the BRO model. These "Entity.Attribute" coincide with the 
 "Object.property" in the DTO model and form the keys in the `GefValidationMessages.properties`.
 
