@@ -239,9 +239,9 @@ public class ConvertGef {
             parseErrors = disFile.getParseErrors();
             if ( !parseErrors.isEmpty() ) {
                 returnValue = true;
-                LOG.log( Level.INFO, "Parse errors (GEF-DISS = %s):", gefCptSurvey.getGefCptFile().getFileName() );
+                LOG.log( Level.INFO, String.format( "Parse errors (GEF-DISS = %s):", gefCptSurvey.getGefCptFile().getFileName() ) );
                 for ( String error : parseErrors ) {
-                    LOG.log( Level.INFO, "  - %s", error );
+                    LOG.log( Level.INFO, String.format( "  - %s", error ) );
                 }
             }
         }
@@ -254,9 +254,9 @@ public class ConvertGef {
         List<String> validationErrors = gefCptSurvey.getGefCptFile().getValidationErrors();
         if ( !validationErrors.isEmpty() ) {
             returnValue = true;
-            LOG.log( Level.INFO, "Validation errors (GEF-CPT = %s):", gefCptSurvey.getGefCptFile().getFileName() );
+            LOG.log( Level.INFO, String.format( "Validation errors (GEF-CPT = %s):", gefCptSurvey.getGefCptFile().getFileName() ) );
             for ( String error : validationErrors ) {
-                LOG.log( Level.INFO, "  - %s", error );
+                LOG.log( Level.INFO, String.format( "  - %s", error ) );
             }
         }
 
@@ -264,9 +264,9 @@ public class ConvertGef {
             validationErrors = disFile.getValidationErrors();
             if ( !validationErrors.isEmpty() ) {
                 returnValue = true;
-                LOG.log( Level.INFO, "Validation errors (GEF-DISS = %s):", gefCptSurvey.getGefCptFile().getFileName() );
+                LOG.log( Level.INFO, String.format( "Validation errors (GEF-DISS = %s):", gefCptSurvey.getGefCptFile().getFileName() ) );
                 for ( String error : validationErrors ) {
-                    LOG.log( Level.INFO, "  - %s", error );
+                    LOG.log( Level.INFO, String.format( "  - %s", error ) );
                 }
             }
         }
