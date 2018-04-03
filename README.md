@@ -23,7 +23,7 @@ for each change. Please start commits with the GitHub issue number `#<nr>`. Once
 
 Mapping documentation comes in 2 documents on this site: 
 
-* The [Handreiking](https://www.broinfo.nl/sites/www.broinfo.nl/files/BROinfo_Handreiking-voor-conversie-van-GEF-CPT-Report-naar-IMBRO-XML_20170630.pdf) (starters guide): 
+* The [Handreiking](https://github.com/BROprogramma/CPT_GEF_CONVERTER/blob/master/gef_doc/20170627GEF-CPTReportNaarIMBRO-XML-Handreiking_v10.pdf) (starters guide): 
 explains the basic principles and should be read prior to read the mapping itself.
 
 * The [Mapping](https://github.com/BROprogramma/CPT_GEF_CONVERTER/blob/master/gef_doc/20170627%20BRO%20CPT%20F3B%20GEF-mapping%20v40.xlsx): explains in full detail all fields on the GEF site, the 
